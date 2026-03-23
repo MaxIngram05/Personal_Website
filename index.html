@@ -4,45 +4,161 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maximilian Ingram</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: sans-serif;
-      background: #0d0d0f;
-      color: #e8e6e0;
-      padding: 2rem;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0f;
+      --surface: #151518;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e6e0;
+      --muted: #7a7872;
+      --accent: #c8f55a;
+      --accent2: #5af5c0;
+      --accent3: #f5855a;
     }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      line-height: 1.6;
+    }
+
     nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
-      padding: 1rem 0;
-      margin-bottom: 4rem;
-      border-bottom: 1px solid #333;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: rgba(13,13,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
-    nav a { color: #c8f55a; text-decoration: none; font-size: 0.9rem; }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
     nav ul { display: flex; gap: 2rem; list-style: none; }
-    nav ul a { color: #888; text-decoration: none; font-size: 0.85rem; }
-    #hero { margin-bottom: 4rem; }
-    h1 { font-size: 3rem; margin-bottom: 1rem; }
-    h1 span { color: #c8f55a; font-style: italic; }
-    p { color: #7a7872; line-height: 1.6; max-width: 500px; margin-bottom: 1.5rem; }
+    nav ul a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    nav ul a:hover { color: var(--text); }
+
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 2.5rem 4rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: 1.0;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em { font-style: italic; color: var(--accent); }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 460px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
     .btn {
       display: inline-block;
-      background: #c8f55a;
-      color: #0d0d0f;
-      padding: 0.75rem 1.5rem;
+      padding: 0.75rem 1.75rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: bold;
+      border-radius: 2px;
+      background: var(--accent);
+      color: #0d0d0f;
+      transition: all 0.2s;
     }
-    section { margin-bottom: 4rem; }
-    h2 { font-size: 1.75rem; margin-bottom: 1.5rem; }
+    .btn:hover { background: #d8ff6a; transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      margin-left: auto;
+      max-width: 340px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.75rem;
+    }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+    }
+
+    section {
+      padding: 6rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 2rem;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#">M.Ingram</a>
+    <a class="nav-logo" href="#hero">M.Ingram</a>
     <ul>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -51,57 +167,91 @@
     </ul>
   </nav>
 
-  <section id="hero">
-    <h1>Maximilian<br /><span>Ingram</span></h1>
-    <p>Software Engineering student at Concordia University, building full-stack apps, Chrome extensions, and games. Based in Montreal, fluent in English & French.</p>
-    <a class="btn" href="https://github.com/MaxIngram05" target="_blank">View Projects</a>
-  </section>
+  <div id="hero">
+    <div>
+      <h1>Maximilian<br /><em>Ingram</em></h1>
+      <p class="hero-desc">Software Engineering student at Concordia University, building full-stack apps, Chrome extensions, and games. Based in Montreal, fluent in English & French.</p>
+      <a class="btn" href="https://github.com/MaxIngram05" target="_blank">View Projects ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-label">Education</div>
+        <div class="stat-value">Concordia University</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.85rem;color:#7a7872;margin-top:0.5rem;">B. Software Engineering</div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.85rem;color:#7a7872;margin-top:0.2rem;">Expected graduation May 2028</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Location</div>
+        <div class="stat-value">Montréal, QC</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Languages</div>
+        <div class="stat-value">English, Français</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
 
   <section id="skills">
-    <h2>Skills</h2>
-    <p>Java, TypeScript, Python, C/C++, C#, JavaScript, HTML/CSS, React, Node.js, Spring Boot, Godot Engine, Git, Docker</p>
+    <h2>Technical Skills</h2>
+    <p style="color:#7a7872;">Java, TypeScript, Python, C/C++, C#, JavaScript, HTML/CSS, Clojure, Erlang, React, Node.js, Spring Boot, Godot Engine, GDScript, Git, Docker, VS Code, IntelliJ, PyCharm, Eclipse</p>
   </section>
+
+  <div class="section-divider"></div>
 
   <section id="projects">
     <h2>Projects</h2>
 
-    <div style="margin-bottom: 2rem;">
-      <h3>ContextFinder.ai</h3>
-      <p>Chrome extension that summarizes academic web pages and parses course syllabuses using AI.</p>
+    <div style="margin-bottom:2.5rem;padding:2rem;background:#151518;border:1px solid rgba(255,255,255,0.07);">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:0.75rem;">ContextFinder.ai</h3>
+      <p style="color:#7a7872;">Chrome extension that summarizes academic web pages and parses course syllabuses using AI.</p>
     </div>
 
-    <div style="margin-bottom: 2rem;">
-      <h3>CaffeineCrash</h3>
-      <p>2D zombie survival game built in 24 hours at ConuHacks X using Godot Engine.</p>
+    <div style="margin-bottom:2.5rem;padding:2rem;background:#151518;border:1px solid rgba(255,255,255,0.07);">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:0.75rem;">CaffeineCrash</h3>
+      <p style="color:#7a7872;">2D zombie survival game built in 24 hours at ConuHacks X using Godot Engine.</p>
     </div>
 
-    <div style="margin-bottom: 2rem;">
-      <h3>JumpSHREK</h3>
-      <p>2D platformer built for CGD Shrekathon 2026. Won Best Game and Community Choice.</p>
+    <div style="margin-bottom:2.5rem;padding:2rem;background:#151518;border:1px solid rgba(255,255,255,0.07);">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:0.75rem;">JumpSHREK</h3>
+      <p style="color:#7a7872;">2D platformer for CGD Shrekathon 2026. Won Best Game and Community Choice.</p>
     </div>
 
-    <div>
-      <h3>Event Management Website</h3>
-      <p>Full-stack event management platform built with React, TypeScript, and Spring Boot.</p>
+    <div style="padding:2rem;background:#151518;border:1px solid rgba(255,255,255,0.07);">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:0.75rem;">Event Management Website</h3>
+      <p style="color:#7a7872;">Full-stack event management platform built with React, TypeScript, and Spring Boot.</p>
     </div>
   </section>
+
+  <div class="section-divider"></div>
 
   <section id="experience">
     <h2>Experience</h2>
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Coding & Robotics Teacher — Inventor STEM School</h3>
-      <p>Feb 2026 - Present</p>
+    <div style="margin-bottom:2rem;padding:2rem;background:#151518;border:1px solid rgba(255,255,255,0.07);">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;">Coding & Robotics Teacher</h3>
+      <p style="font-family:'DM Mono',monospace;font-size:0.75rem;color:#c8f55a;margin:0.25rem 0 0.75rem;">Inventor STEM School · Montréal, QC</p>
+      <p style="color:#7a7872;font-size:0.85rem;">Feb 2026 - Present</p>
     </div>
-    <div>
-      <h3>Robotics Camp Instructor — Dawson College</h3>
-      <p>Jun 2024 - Sep 2024</p>
+    <div style="padding:2rem;background:#151518;border:1px solid rgba(255,255,255,0.07);">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;">Robotics Camp Instructor</h3>
+      <p style="font-family:'DM Mono',monospace;font-size:0.75rem;color:#c8f55a;margin:0.25rem 0 0.75rem;">Dawson College Robotics Camp · Montréal, QC</p>
+      <p style="color:#7a7872;font-size:0.85rem;">Jun 2024 - Sep 2024</p>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>axeingram@gmail.com</p>
+  <div class="section-divider"></div>
+
+  <section id="contact" style="text-align:center;">
+    <h2>Let's build something.</h2>
+    <p style="color:#7a7872;margin-bottom:2rem;">Open to new opportunities. Reach out anytime.</p>
+    <a class="btn" href="mailto:axeingram@gmail.com">axeingram@gmail.com</a>
   </section>
+
+  <footer>
+    <span>© 2026 Maximilian Ingram</span>
+    <span>Montreal, QC</span>
+  </footer>
 
 </body>
 </html>
