@@ -1,2 +1,12 @@
 .DS_Store
 Thumbs.db
+node_modules/
+.wrangler/
+.dev.vars
+Resources/desktop.ini
+desktop.ini
+
+# Originals that stay out of the repo
+Resources/undertale-yellow-soul-seeklogo.png
+Resources/Star Savepoint.mp4
+Resources/Max Ingram Resume.pdf

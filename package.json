@@ -1,0 +1,24 @@
+{
+  "name": "maxingram-dev",
+  "version": "1.0.0",
+  "description": "Max Ingram — Undertale-inspired retro RPG portfolio on Cloudflare Workers",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "images": "python scripts/build-images.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxIngram05/Personal_Website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxIngram05/Personal_Website/issues"
+  },
+  "homepage": "https://github.com/MaxIngram05/Personal_Website#readme",
+  "devDependencies": {
+    "wrangler": "^4.165.0"
+  },
+  "private": true
+}

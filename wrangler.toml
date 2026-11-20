@@ -1,0 +1,13 @@
+# Assets-only Worker: Cloudflare serves everything in ./public, no script needed.
+# Deployed by Workers Builds on every push to the production branch.
+name = "mingram"
+compatibility_date = "2026-11-19"
+
+routes = [
+  { pattern = "maxingram.dev", custom_domain = true },
+  { pattern = "www.maxingram.dev", custom_domain = true },
+]
+
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
