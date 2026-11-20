@@ -125,14 +125,17 @@ def build_hearts():
     save_png(up(grid_to_image(HEART, YELLOW, BLACK), 2), IMG / "cursor-heart-hover.png")
     save_png(up(grid_to_image(HEART, HARD_BLUE, BLACK), 2), IMG / "cursor-heart-hard.png")
     save_png(up(grid_to_image(HEART, HARD_PURPLE, BLACK), 2), IMG / "cursor-heart-hard-hover.png")
-    fav = Image.new("RGBA", (32, 32), BLACK)
-    h = up(grid_to_image(HEART, RED), 3)  # 27x24
-    fav.paste(h, ((32 - h.width) // 2, (32 - h.height) // 2 + 1), h)
-    save_png(fav, IMG / "favicon.png")
-    touch = Image.new("RGBA", (180, 180), BLACK)
-    h = up(grid_to_image(HEART, RED), 15)
-    touch.paste(h, ((180 - h.width) // 2, (180 - h.height) // 2 + 6), h)
-    save_png(touch, IMG / "apple-touch-icon.png")
+
+
+def build_favicon():
+    """Browser-tab icon and home-screen icon from my pixel face logo."""
+    logo = Image.open(SRC / "website logo.png").convert("RGBA")
+    logo = logo.crop((0, 0, logo.width - 1, logo.height - 1))  # drop the half-transparent edge
+    side = max(logo.size)
+    square = Image.new("RGBA", (side, side), logo.getpixel((0, 0)))
+    square.paste(logo, ((side - logo.width) // 2, side - logo.height))  # face sits on the bottom edge
+    save_png(square.resize((32, 32), Image.BOX), IMG / "favicon.png")
+    save_png(square.resize((180, 180), Image.LANCZOS), IMG / "apple-touch-icon.png")
 
 
 def pixel_text(draw_im, xy, text, k, fill):
@@ -243,6 +246,10 @@ def build_save_star():
             print("  (skipped save-star video: no ffmpeg; pip install imageio-ffmpeg)")
             return
     out = OUT / "media"
+    # Re-encoding isn't byte-identical, so skip it unless the source changed.
+    done = [out / f for f in ("save-star.mp4", "save-star.webm", "save-star-poster.webp")]
+    if all(f.exists() and f.stat().st_mtime >= src.stat().st_mtime for f in done):
+        return
     out.mkdir(parents=True, exist_ok=True)
     vf = "crop=240:240:814:409,fps=24"  # the star sits in this square of the 1920x1080 source
     run = lambda *args: subprocess.run([ff, "-hide_banner", "-loglevel", "error", "-y", "-i", str(src), *args], check=True)
@@ -261,6 +268,7 @@ def main():
     print("Building images...")
     avatar = build_avatar()
     build_hearts()
+    build_favicon()
     build_og(avatar)
     build_pixel_art()
     build_photos()
