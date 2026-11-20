@@ -167,13 +167,14 @@ def build_og(avatar):
     av = up(avatar, 15)
     og.paste(av, (110, (H - av.height) // 2), av)
     x = 420
-    pixel_text(og, (x, 170), "MAX INGRAM", 7, WHITE)
-    pixel_text(og, (x, 270), "SOFTWARE ENGINEER", 4, YELLOW)
-    pixel_text(og, (x, 330), "SOEN @ CONCORDIA", 3, WHITE)
-    pixel_text(og, (x, 372), "MONTREAL - EN/FR", 3, WHITE)
+    pixel_text(og, (x, 150), "MAX INGRAM", 7, WHITE)
+    pixel_text(og, (x, 240), "SOFTWARE ENGINEERING", 4, YELLOW)
+    pixel_text(og, (x, 284), "STUDENT", 4, YELLOW)
+    pixel_text(og, (x, 350), "SOEN @ CONCORDIA", 3, WHITE)
+    pixel_text(og, (x, 392), "MONTREAL - EN/FR", 3, WHITE)
     h = up(grid_to_image(HEART, RED), 6)
-    og.paste(h, (x, 450), h)
-    pixel_text(og, (x + 80, 458), "maxingram.dev", 4, WHITE)
+    og.paste(h, (x, 462), h)
+    pixel_text(og, (x + 80, 470), "maxingram.dev", 4, WHITE)
     save_png(og.convert("RGB"), IMG / "og-image.png")
 
 
