@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Max Ingram — Software Engineer</title>
+  <meta name="description" content="Max Ingram: Software Engineering student at Concordia University in Montreal. Projects, game jams, robots and a retro RPG you can explore. Bilingual EN/FR." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://maxingram.dev/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://maxingram.dev/" />
+  <meta property="og:title" content="Max Ingram — Software Engineer" />
+  <meta property="og:description" content="SOEN student at Concordia, Montreal. Explore my projects, quest log and hobbies in a retro RPG portfolio." />
+  <meta property="og:image" content="https://maxingram.dev/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Pixel art of Max Ingram next to the text Max Ingram, Software Engineer" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+  <link rel="preload" href="/fonts/press-start-2p-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/vt323-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/data/content.json" as="fetch" crossorigin />
+  <link rel="modulepreload" href="/js/scenes.js" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body data-scene="home">
+  <canvas id="stars" class="stars" aria-hidden="true"></canvas>
+
+  <!-- Start gate: click the heart and it becomes your cursor. -->
+  <div id="gate" class="gate">
+    <button id="gate-heart" class="gate-heart" type="button" aria-describedby="gate-hint">
+      <span class="sr-only">Start</span>
+    </button>
+    <p id="gate-hint" class="gate-hint">* Click the heart to begin.<span class="gate-sub">or press Enter</span></p>
+  </div>
+
+  <div id="app" class="app" inert>
+    <a class="skip-link" href="#main" data-skip>Skip to content</a>
+
+    <header class="topbar">
+      <a class="brand" href="#home" data-route="home">MAX INGRAM</a>
+      <div class="topbar-tools">
+        <span id="hard-badge" class="hard-badge" hidden>HARD MODE</span>
+        <button id="sound-toggle" class="chip" type="button" aria-pressed="false">SOUND: OFF</button>
+      </div>
+    </header>
+
+    <main id="main" class="stage" tabindex="-1">
+      <section id="scene-home" class="scene" data-scene="home" aria-labelledby="h-home"></section>
+      <section id="scene-projects" class="scene" data-scene="projects" aria-labelledby="h-projects" hidden></section>
+      <section id="scene-journey" class="scene" data-scene="journey" aria-labelledby="h-journey" hidden></section>
+      <section id="scene-about" class="scene" data-scene="about" aria-labelledby="h-about" hidden></section>
+      <section id="scene-contact" class="scene" data-scene="contact" aria-labelledby="h-contact" hidden></section>
+    </main>
+
+    <nav class="battle-menu" aria-label="Main menu">
+      <a class="battle-btn" href="#projects" data-route="projects"><span class="battle-ico" data-icon="chest"></span><span>PROJECTS</span></a>
+      <a class="battle-btn" href="#journey" data-route="journey"><span class="battle-ico" data-icon="map"></span><span>JOURNEY</span></a>
+      <a class="battle-btn" href="#about" data-route="about"><span class="battle-ico" data-icon="person"></span><span>ABOUT</span></a>
+      <a class="battle-btn" href="#contact" data-route="contact"><span class="battle-ico" data-icon="mail"></span><span>CONTACT</span></a>
+    </nav>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <canvas id="dissolve" class="dissolve" aria-hidden="true"></canvas>
+
+  <noscript>
+    <style>.gate { display: none; }</style>
+    <div class="noscript">
+      <p>* This RPG needs JavaScript to run.</p>
+      <p>Max Ingram, Software Engineering student at Concordia University, Montreal.
+        <a href="mailto:axeingram@gmail.com">axeingram@gmail.com</a> ·
+        <a href="https://www.linkedin.com/in/maximilian-ingram/">LinkedIn</a> ·
+        <a href="https://github.com/MaxIngram05">GitHub</a> ·
+        <a href="/resume.pdf">Resume</a></p>
+    </div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,322 @@
+{
+  "_readme": "All site text lives here. Edit freely; layout code never needs to change. Fields starting with _ are notes and are ignored. Any entry with \"image\": null shows a labelled placeholder box using \"imageHint\" until you add the file.",
+
+  "profile": {
+    "name": "Max Ingram",
+    "fullName": "Maximilian Ingram",
+    "level": "LV 3",
+    "class": "SOEN student",
+    "location": "Montreal, QC",
+    "quest": "Looking for 2027 software development internships",
+    "school": "Concordia University",
+    "graduation": "May 2028",
+    "languages": "EN / FR",
+    "email": "axeingram@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/maximilian-ingram/",
+    "github": "https://github.com/MaxIngram05",
+    "resume": "/resume.pdf"
+  },
+
+  "home": {
+    "greetings": [
+      "* It's Max. You feel like you're about to see some cool projects.",
+      "* It's Max. He's been debugging an I2C multiplexer. He seems fine.",
+      "* It's Max. Smells like fresh coffee and freshly deployed code.",
+      "* It's Max. He's tuning a guitar between test runs.",
+      "* It's Max. He just got back from a bike ride. Quest log updated.",
+      "* It's Max. You sense a game jam trophy somewhere nearby.",
+      "* It's Max. He went down Wellington for one coffee. Verdun has claimed another afternoon.",
+      "* It's Max. He walked into Kahwa. The barista started his order before he reached the counter."
+    ],
+    "hint": "Use the menu below (arrow keys + Enter / Z) or click."
+  },
+
+  "projects": [
+    {
+      "id": "contextfinder",
+      "name": "ContextFinder.ai",
+      "icon": "book",
+      "status": "SHIPPED",
+      "date": "Mar – Jul 2026",
+      "short": "Chrome extension that summarizes academic PDFs.",
+      "description": "A Chrome extension that summarizes dense academic pages and PDFs (course outlines, papers) in under 5 seconds, then answers follow-up questions grounded in that document. The React + TypeScript UI is bundled with webpack and talks to a Node.js backend on Firebase that calls the Anthropic API. The fun challenge was cost: optimizing the API calls so each request stays around $0.02, with a CI/CD pipeline and a Jest suite keeping it shippable.",
+      "tags": ["React", "TypeScript", "webpack", "Node.js", "Firebase", "Anthropic API", "Jest"],
+      "image": "/images/projects/contextfinder.webp",
+      "imageAlt": "ContextFinder.ai popup showing a generated summary of a SOEN 357 course outline PDF",
+      "imageFit": "contain",
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/MaxIngram05/ContextFinder.ai" }
+      ]
+    },
+    {
+      "id": "jumpshrek",
+      "name": "JumpSHREK",
+      "icon": "trophy",
+      "status": "GAMEJAM",
+      "award": "BEST GAME + COMMUNITY CHOICE",
+      "date": "Mar 2026",
+      "short": "Godot platformer. Won both awards at CGD Shrekathon 2026.",
+      "description": "A 2D platformer built in Godot (GDScript + C#) with a 5-person team for CGD Shrekathon 2026, Concordia's game jam: climb the mountain layer by layer to reach Fiona while escaping the Dragon. It has layered jump mechanics, branching routes and endings based on your choices with Puss in Boots, Donkey and Rumpelstiltskin. The trickiest part was enemy AI that watches how you play and adapts its strategy. It won both Best Game (judges) and Community Choice (participants).",
+      "tags": ["Godot", "GDScript", "C#", "Game AI", "Game Jam"],
+      "video": "https://www.youtube-nocookie.com/embed/1it7Kg2O0_A?autoplay=1&mute=1&loop=1&playlist=1it7Kg2O0_A&controls=0&playsinline=1&modestbranding=1&rel=0",
+      "videoTitle": "JumpSHREK gameplay",
+      "image": "/images/projects/jumpshrek.webp",
+      "imageAlt": "JumpSHREK gameplay: Shrek climbs the mountain while Donkey shouts \"SHREK! Hallelujah, you're here!\"",
+      "gallery": [
+        { "image": "/images/projects/jumpshrek-team.webp", "alt": "The JumpSHREK team posing together at CGD Shrekathon 2026" }
+      ],
+      "links": [
+        { "label": "Play on itch.io", "url": "https://dudenameddarcy.itch.io/jumpshrek" },
+        { "label": "GitHub", "url": "https://github.com/MaxIngram05/Farquants" }
+      ]
+    },
+    {
+      "id": "sumo-robot",
+      "name": "Sumo Robot",
+      "icon": "robot",
+      "status": "SHIPPED",
+      "date": "2026",
+      "short": "ESP32-S3 sumo bot for Robowars 2026.",
+      "description": "A sumo robot built for Robowars 2026 on an ESP32-S3 (Freenove WROOM). Most of the work was embedded debugging: tracking down a dead TCA9548A I²C multiplexer that was taking the sensors behind it off the bus, and resolving GPIO pin conflicts on the board. The final firmware shipped in time for competition day.",
+      "tags": ["ESP32-S3", "C++", "Arduino", "I²C", "Embedded"],
+      "image": "/images/projects/sumo-robot.webp",
+      "imageAlt": "Max and teammates tuning the sumo robot on a laptop at Robowars 2026",
+      "links": []
+    },
+    {
+      "id": "advocato",
+      "name": "Advocato",
+      "icon": "scroll",
+      "status": "HACKATHON",
+      "date": "Oct 2026",
+      "short": "AI legal-argument add-on for Google Docs.",
+      "description": "Built with a 3-person team at the CAIJ 2nd Annual AI Integration Hackathon: a Google Docs add-on that takes a Québec lawyer from case exhibits (PDF/DOCX) to a sourced argument matrix, using live CAIJ case-law search and the Augure LLM, in French and English. To stop hallucinated citations, every LLM response is validated against Zod schemas plus a grounding check that rejects any case, fact or exhibit not found in the retrieved sources. The LLM, search and Drive sit behind swappable adapters, which made an offline demo mode and a 230-test suite possible.",
+      "tags": ["TypeScript", "React", "Google Apps Script", "Zod", "Vitest", "Playwright", "LLM"],
+      "image": "/images/projects/advocato.webp",
+      "imageAlt": "Advocato sidebar in Google Docs generating a sourced French legal argument, with unverified citations flagged",
+      "links": []
+    },
+    {
+      "id": "caffeinecrash",
+      "name": "CaffeineCrash",
+      "icon": "mug",
+      "status": "HACKATHON",
+      "date": "Jan 2025",
+      "short": "24-hour co-op zombie survival game, ConuHacks X.",
+      "description": "A 2D zombie survival game built in 24 hours with a 4-person team at ConuHacks X. I worked on zombie AI, scene management and player interaction in GDScript. The hard part was online co-op: syncing player state and enemy behaviour in real time over Godot's high-level multiplayer API before the clock ran out. Think COD Zombies, except every Perk-a-Cola is just Celsius.",
+      "tags": ["Godot", "GDScript", "Multiplayer", "Networking"],
+      "image": "/images/projects/caffeinecrash.webp",
+      "imageAlt": "CaffeineCrash gameplay: a horde closing in while the Liquid Energy meter runs low",
+      "imageFit": "natural",
+      "gallery": [
+        { "image": "/images/projects/caffeinecrash-team.webp", "alt": "The CaffeineCrash team at ConuHacks X with the game's title screen on a monitor" }
+      ],
+      "links": [
+        { "label": "Devpost", "url": "https://devpost.com/software/caffeine-crash" }
+      ]
+    },
+    {
+      "id": "scheduling-app",
+      "name": "WhosOnBreak",
+      "icon": "calendar",
+      "status": "COMING SOON",
+      "date": "TBA",
+      "short": "Shift and break scheduling app for Android.",
+      "description": "A scheduling app for figuring out who's working, who's on break and when, with friend codes you share by QR. It's a TypeScript monorepo: an Expo / React Native Android app with a drag-and-drop week editor, and a Hono API on Cloudflare Workers backed by Neon Postgres, with Google sign-in and JWT auth. The scheduling rules (breaks, A/B week cycles, time zones) live in a dependency-free core package, and shared Zod contracts keep the app and the API agreeing on every request. Rate limiting runs on Durable Objects across all isolates, and the API tests run against PGlite (Postgres in WebAssembly), so CI needs no real database or secrets. Targeting a Google Play release with a free tier and a paid version.",
+      "tags": ["TypeScript", "React Native", "Expo", "Hono", "Cloudflare Workers", "Neon Postgres", "Durable Objects", "Zod", "Vitest"],
+      "image": "/images/projects/scheduling-app.webp",
+      "imageAlt": "WhosOnBreak app icon: two people next to a colourful schedule chart",
+      "imageFit": "contain",
+      "links": []
+    },
+    {
+      "id": "linkt",
+      "name": "LINKT",
+      "icon": "ticket",
+      "status": "SHIPPED",
+      "date": "Dec 2025",
+      "short": "Full-stack event management platform.",
+      "description": "A team-built event management platform with separate React/TypeScript frontend and Spring Boot backend modules. I designed 8+ REST endpoints for event queries, authentication and persistence. Keeping average API response time under 500 ms while reaching 90% backend test coverage was the main engineering goal.",
+      "tags": ["React", "TypeScript", "Spring Boot", "REST"],
+      "image": "/images/projects/linkt.webp",
+      "imageAlt": "LINKT's Browse Events page: search, category and price filters above campus event cards",
+      "imageFit": "natural",
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/RenaudBernier/linkt" }
+      ]
+    },
+    {
+      "id": "maxingram-dev",
+      "name": "maxingram.dev",
+      "icon": "heart",
+      "status": "SHIPPED",
+      "date": "2026",
+      "short": "This site! A retro RPG portfolio.",
+      "description": "This site: an Undertale-inspired retro RPG portfolio served as static assets from a Cloudflare Worker. It's plain HTML, CSS and vanilla JS with no framework and no build step, and every bit of text comes from one JSON file. All the sound is synthesized live with the Web Audio API: square-wave dialogue blips and a Karplus-Strong plucked-string guitar, so there isn't a single audio file.",
+      "tags": ["Cloudflare Workers", "Vanilla JS", "Web Audio", "CSS"],
+      "image": "/images/og-image.png",
+      "imageAlt": "maxingram.dev social preview card with Max's pixel avatar",
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/MaxIngram05/Personal_Website" }
+      ]
+    }
+  ],
+
+  "_journeyTodo": "TODO: cross-check every entry against LinkedIn (dates, titles). Entries are sorted by \"sort\" (YYYY-MM), newest first. \"major\": true gives the gold star marker.",
+  "journey": [
+    {
+      "sort": "2026-10",
+      "date": "Oct 2026",
+      "title": "CAIJ AI Integration Hackathon",
+      "org": "CAIJ · 2nd Annual",
+      "summary": "Built Advocato, an AI legal-argument add-on for Google Docs, with a 3-person team.",
+      "icon": "scroll",
+      "photo": "/images/projects/advocato.webp",
+      "photoAlt": "Advocato running as a Google Docs sidebar, drafting a sourced legal argument",
+      "photoWide": true
+    },
+    {
+      "sort": "2026-05-2",
+      "date": "May 2026 – Present",
+      "title": "Director of External Relations",
+      "org": "Software Engineering & Computer Science Society (SCS), Concordia",
+      "summary": "Running sponsorship outreach to Montreal tech companies.",
+      "icon": "handshake",
+      "logo": "/images/journey/scs.webp",
+      "logoAlt": "SCS logo"
+    },
+    {
+      "sort": "2026-05",
+      "date": "May – Sep 2026",
+      "title": "QA Automation Development Intern",
+      "org": "dormakaba Canada · Montreal",
+      "summary": "QA on the Ambiance Cloud platform: a Java Web API test suite (50+ cases, coverage 90% → 93%), Python load/performance scripts and security audit work.",
+      "icon": "bug",
+      "logo": "/images/journey/dormakaba.webp",
+      "logoAlt": "dormakaba logo"
+    },
+    {
+      "sort": "2026-03",
+      "date": "Mar 20–22, 2026",
+      "title": "CGD Shrekathon 2026",
+      "org": "Concordia Game Development",
+      "summary": "JumpSHREK won Best Game and Community Choice.",
+      "icon": "trophy",
+      "major": true,
+      "photo": "/images/journey/shrekathon.webp",
+      "photoAlt": "CGD Shrekathon banner: Shrek and a pink knight in front of a castle gate",
+      "photoWide": true
+    },
+    {
+      "sort": "2026-02",
+      "date": "Feb 2026 – Present",
+      "title": "Coding & Robotics Instructor",
+      "org": "Inventor STEM School · Part-time",
+      "summary": "Teaching Scratch Jr, block coding and LEGO robotics to 100+ students aged 3–16.",
+      "quip": "* Training the next expedition. For those who come after.",
+      "icon": "robot",
+      "logo": "/images/journey/inventor-stem.webp",
+      "logoAlt": "Inventor STEM School logo",
+      "photo": "/images/journey/teaching.webp",
+      "photoAlt": "Max teaching a robotics lesson in front of a screen"
+    },
+    {
+      "sort": "2025-11",
+      "_note": "No date shown on purpose; \"sort\" only sets its place in the list.",
+      "title": "MPC Hacks",
+      "org": "McGill · Polytechnique · Concordia",
+      "summary": "Took part in the inter-university hackathon across Montreal's three engineering schools.",
+      "icon": "flag"
+    },
+    {
+      "sort": "2025-06",
+      "date": "Jun 2022 – Aug 2025",
+      "title": "Swim Instructor / Lifeguard",
+      "org": "City of Verdun",
+      "summary": "Taught swimming in English and French; kept 100+ patrons per shift safe.",
+      "icon": "wave"
+    },
+    {
+      "sort": "2025-01",
+      "date": "Jan 2025",
+      "title": "ConuHacks X",
+      "org": "Concordia · 24h hackathon",
+      "summary": "Built CaffeineCrash, an online co-op zombie survival game in Godot.",
+      "icon": "mug",
+      "logo": "/images/journey/conuhacks.webp",
+      "logoAlt": "ConuHacks X logo",
+      "logoWide": true
+    },
+    {
+      "sort": "2025-01",
+      "date": "Jan 2025 – May 2028 (expected)",
+      "title": "B.Eng. Software Engineering",
+      "org": "Concordia University · Montreal",
+      "summary": "The main quest. Software engineering, with plenty of side quests.",
+      "icon": "scroll",
+      "logo": "/images/journey/concordia.webp",
+      "logoAlt": "Concordia University logo"
+    },
+    {
+      "sort": "2024-06",
+      "date": "Jun – Sep 2024",
+      "title": "Robotics Camp Instructor",
+      "org": "Dawson College · Summer",
+      "summary": "50+ hours of robotics and robot-assembly instruction, in English and French.",
+      "icon": "gear"
+    }
+  ],
+
+  "about": {
+    "bio": "* Hi, I'm Max: a Software Engineering student at Concordia in Montreal, fully bilingual in English and French. I like building things you can actually use, working on projects, and participating in hackathons and game jams. When I'm not coding I'm probably out on my bike, playing guitar, or playing video games.",
+    "photo": "/images/about/headshot.webp",
+    "photoAlt": "Photo of Max Ingram",
+    "party": [
+      {
+        "id": "games",
+        "name": "GAMER",
+        "level": "LV 99",
+        "image": "/images/about/games.webp",
+        "imageAlt": "Pixel game controller",
+        "text": "I play a lot of games: League of Legends, Pokémon TCG collecting and the Lancer TTRPG.",
+        "hint": "Hover or tap for flavour text.",
+        "flavour": [
+          "* The controller is warm. Someone just lost a ranked game.",
+          "* You check your binder. Still missing that one holo.",
+          "* A mech pilot sheet. The Lancer campaign continues.",
+          "* A save file reads 99 hours. He swears it was 40.",
+          "* \"Just one more game.\" It was not one more game.",
+          "* You found a hackathon idea scribbled on a napkin."
+        ]
+      },
+      {
+        "id": "bike",
+        "name": "RIDER",
+        "level": "LV 12",
+        "image": "/images/about/bike.webp",
+        "imageAlt": "Pixel red bicycle",
+        "text": "Biking around Montreal, wherever the route goes.",
+        "hint": "Hover or tap to ride."
+      },
+      {
+        "id": "guitar",
+        "name": "BARD",
+        "level": "LV 7",
+        "image": "/images/about/guitar.webp",
+        "imageAlt": "Pixel acoustic guitar",
+        "text": "Guitar is how I unwind after a long debugging session. Try it: click a string or press 1–6.",
+        "hint": "Keys 1–6 pluck E A D G B E."
+      }
+    ]
+  },
+
+  "contact": {
+    "line": "* The thought of new opportunities fills you with determination.",
+    "prompt": "A save point sparkles. Interact with it?"
+  },
+
+  "hardMode": {
+    "on": "* The air crackles. HARD MODE enabled.",
+    "off": "* Everything feels normal again."
+  }
+}
