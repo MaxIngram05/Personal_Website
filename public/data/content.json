@@ -5,7 +5,7 @@
     "name": "Max Ingram",
     "fullName": "Maximilian Ingram",
     "level": "LV 3",
-    "class": "SOEN student",
+    "class": "Software Engineering student",
     "location": "Montreal, QC",
     "quest": "Looking for 2027 software development internships",
     "school": "Concordia University",
@@ -24,9 +24,7 @@
       "* It's Max. Smells like fresh coffee and freshly deployed code.",
       "* It's Max. He's tuning a guitar between test runs.",
       "* It's Max. He just got back from a bike ride. Quest log updated.",
-      "* It's Max. You sense a game jam trophy somewhere nearby.",
-      "* It's Max. He went down Wellington for one coffee. Verdun has claimed another afternoon.",
-      "* It's Max. He walked into Kahwa. The barista started his order before he reached the counter."
+      "* It's Max. You sense a game jam trophy somewhere nearby."
     ],
     "hint": "Use the menu below (arrow keys + Enter / Z) or click."
   },

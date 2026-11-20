@@ -9,6 +9,7 @@ the original pixel art used by the site (heart cursor, favicon, save star,
 OG card), so nothing here depends on third-party game assets.
 """
 from pathlib import Path
+import re
 import shutil
 import subprocess
 
@@ -170,7 +171,7 @@ def build_og(avatar):
     pixel_text(og, (x, 150), "MAX INGRAM", 7, WHITE)
     pixel_text(og, (x, 240), "SOFTWARE ENGINEERING", 4, YELLOW)
     pixel_text(og, (x, 284), "STUDENT", 4, YELLOW)
-    pixel_text(og, (x, 350), "SOEN @ CONCORDIA", 3, WHITE)
+    pixel_text(og, (x, 350), "CONCORDIA UNIVERSITY", 3, WHITE)
     pixel_text(og, (x, 392), "MONTREAL - EN/FR", 3, WHITE)
     h = up(grid_to_image(HEART, RED), 6)
     og.paste(h, (x, 462), h)
@@ -265,6 +266,31 @@ def build_save_star():
         print(f"  public/media/{f}  {(out / f).stat().st_size // 1024} KB")
 
 
+PHONE = re.compile(r"\(?\d{3}\)?[-. ]?\d{3}[-. ]\d{4}(\s*\|)?")
+
+
+def build_resume():
+    """Copy the résumé with the phone number redacted (text removed, not just covered)."""
+    resume = SRC / "Max Ingram Resume.pdf"  # gitignored; only on my machine
+    if not resume.exists():
+        return
+    try:
+        import pymupdf
+    except ImportError:
+        print("  skipped public/resume.pdf: pip install pymupdf to redact the phone number")
+        return
+    doc = pymupdf.open(resume)
+    found = 0
+    for page in doc:
+        for m in {m.group(0) for m in PHONE.finditer(page.get_text())}:
+            for rect in page.search_for(m):
+                page.add_redact_annot(rect)
+                found += 1
+        page.apply_redactions()
+    doc.save(OUT / "resume.pdf", garbage=4, deflate=True)
+    print(f"  public/resume.pdf  ({found} phone number(s) redacted)")
+
+
 def main():
     print("Building images...")
     avatar = build_avatar()
@@ -275,10 +301,7 @@ def main():
     build_photos()
     build_logos()
     build_save_star()
-    resume = SRC / "Max Ingram Resume.pdf"  # gitignored; only on my machine
-    if resume.exists():
-        shutil.copyfile(resume, OUT / "resume.pdf")
-        print("  public/resume.pdf")
+    build_resume()
 
 
 if __name__ == "__main__":
