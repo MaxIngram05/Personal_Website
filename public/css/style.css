@@ -506,7 +506,7 @@ kbd { font-family: var(--head); font-size: 0.6em; border: 2px solid currentColor
   background: none; border: 0; padding: clamp(10px, 6vw, 26px); line-height: 0;
 }
 /* The star video is yellow on black; "screen" drops the black so the starfield shows through. */
-.save-video { display: block; width: min(120px, 100%); height: auto; aspect-ratio: 1; mix-blend-mode: screen; pointer-events: none; }
+.save-video { display: block; width: 120px; max-width: 100%; height: auto; aspect-ratio: 1; mix-blend-mode: screen; pointer-events: none; }
 .save-star:hover .save-video, .save-star:focus-visible .save-video { filter: brightness(1.25); }
 .save-star:focus-visible { outline-color: var(--red); }
 .save-sparkles i {
